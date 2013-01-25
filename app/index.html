@@ -20,7 +20,18 @@
     </header>
 
     <div id="bodyWrapper">
-        
+
+        <h2>Folding Item</h2>
+        <foldingitem title="Folding item test">
+            <content>
+                Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+                Currency: {{ 123456 | currency }} <br>
+                Number: {{ 98765.4321 | number }} <br>
+            </content>
+        </foldingitem>
+
+        <h2>Accordion</h2>
+
         <h2>Tabs</h2>
 
         <tabs>

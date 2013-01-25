@@ -40,6 +40,7 @@
 .ng-tabs .ng-nav .ng-nav-item.active {
 	color: white;
 	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
+	border-color: #05c;
 }
 
 .ng-tabs .ng-content {
@@ -54,5 +55,48 @@
 }
 
 .ng-tabs .ng-pane.active {
+	display: block;
+}
+
+/* <folding-item> */
+
+.ng-folding-item {
+	display: block;
+	width: 100%;
+}
+
+.ng-folding-item .ng-title {
+	width: 100%;
+	color: #666;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 5px;
+	margin-right: 4px;
+	border: solid 1px #ccc;
+	border-bottom: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#ddd), to(#eee));
+}
+
+.ng-folding-item .ng-title.active {
+	color: white;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
+	border-color: #05c;
+}
+
+.ng-folding-item .ng-content {
+	display: none;
+	border: solid 1px #05c;
+	padding: 5px;
+	background: white;
+	min-height: 50px;
+}
+
+.ng-folding-item .ng-content.active {
+	display: block;
+}
+
+.ng-folding-item .ng-content .ng-inner {
 	display: block;
 }

@@ -62,3 +62,36 @@ NG$C.Controls.directive("pane", function() {
             '</div>'
     };
 });
+
+
+// <folding-item>
+NG$C.Controls.directive("foldingitem", function() {
+    return {
+        restrict: "E",
+        transclude: true,
+        replace: true,
+        scope: {title: "@"},
+        controller: function($scope, $element) {
+            $scope.selected = false;
+            $scope.select = function() {
+                $scope.selected = !$scope.selected;
+            }
+        },
+        template:
+            '<div class="ng-folding-item">'+
+            '    <div class="ng-title" ng-class="{active:selected}" ng-click="select()">{{title}}</div>'+
+            '    <div class="ng-content" ng-class="{active:selected}" ng-transclude></div>'+
+            '</div>'
+    };
+});
+
+NG$C.Controls.directive("content", function() {
+    return {
+        require: "^folding-item",
+        restrict: "E",
+        transclude: true,
+        replace: true,
+        template:
+            '<div class="ng-inner" ng-transclude></div>'
+    };
+});
