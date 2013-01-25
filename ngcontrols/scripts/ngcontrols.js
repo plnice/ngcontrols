@@ -65,7 +65,7 @@ NG$C.Controls.directive("pane", function() {
 
 
 // <folding-item>
-NG$C.Controls.directive("foldingitem", function() {
+NG$C.Controls.directive("foldingItem", function() {
     return {
         restrict: "E",
         transclude: true,
@@ -87,7 +87,7 @@ NG$C.Controls.directive("foldingitem", function() {
 
 NG$C.Controls.directive("content", function() {
     return {
-        require: "^folding-item",
+        require: "^foldingItem",
         restrict: "E",
         transclude: true,
         replace: true,
