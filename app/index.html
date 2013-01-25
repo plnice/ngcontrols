@@ -1,15 +1,40 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="controls">
 <head>
-  <meta charset="utf-8">
-  <title>ngControls Kitchen Sink</title>
-  <link rel="stylesheet" href="/ngcontrols/styles/ngcontrols.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-  <script src="/ngcontrols/scripts/ngcontrols.js"></script>
+    <meta charset="utf-8">
+    <title>ngControls Kitchen Sink</title>
+    <link rel="stylesheet" href="/ngcontrols/styles/ngcontrols.css">
+    <link rel="stylesheet" href="./styles/ngcontrols-ks.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="/ngcontrols/scripts/ngcontrols.js"></script>
 </head>
 <body>
 
-  <p>Nothing here {{'yet' + '!'}}</p>
+    <header>
+        <b>ngControls</b> Kitchen Sink
+        <div class="poweredby">Powered by 
+            <a href="http://www.angularjs.org/">
+                <img src="http://angularjs.org/img/AngularJS-small.png" alt="AngularJS" />
+            </a>
+        </div>
+    </header>
+
+    <div id="bodyWrapper">
+        
+        <h2>Tabs</h2>
+
+        <tabs>
+            <pane title="Localization">
+                Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+                Currency: {{ 123456 | currency }} <br>
+                Number: {{ 98765.4321 | number }} <br>
+            </pane>
+            <pane title="Second">
+                Nothing here.
+            </pane>
+        </tabs>
+
+    </div>  
 
 </body>
 </html>

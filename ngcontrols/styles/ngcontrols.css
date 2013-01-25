@@ -1,0 +1,58 @@
+/*
+ * ngControls build 0.0.0
+ * Licensed under GPLv3
+ * Author: Milosz Lewandowski
+ */
+
+/* <tabs> and <tabs><pane> */
+
+.ng-tabs {
+	width: 100%;
+    font-family: "Lucida Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.ng-tabs .ng-nav {
+	display: block;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.ng-tabs .ng-nav .ng-nav-item {
+	color: #666;
+	list-style: none;
+	display: inline-block;
+	padding: 5px;
+	margin-right: 4px;
+	border: solid 1px #ccc;
+	border-bottom: none;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#ddd), to(#eee));
+}
+
+.ng-tabs .ng-nav .ng-nav-item a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ng-tabs .ng-nav .ng-nav-item.active {
+	color: white;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
+}
+
+.ng-tabs .ng-content {
+	border: solid 1px #05c;
+	padding: 5px;
+	background: white;
+	min-height: 50px;
+}
+
+.ng-tabs .ng-pane {
+	display: none;
+}
+
+.ng-tabs .ng-pane.active {
+	display: block;
+}

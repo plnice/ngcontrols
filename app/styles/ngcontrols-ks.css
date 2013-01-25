@@ -1,0 +1,47 @@
+/*
+ * ngControls build 0.0.0
+ * Licensed under GPLv3
+ * Author: Milosz Lewandowski
+ */
+
+ body {
+ 	margin: 0px;
+ 	padding: 0px;
+    font-family: "Lucida Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#ddd), to(#eee));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ }
+
+ header {
+ 	display: block;
+ 	box-sizing: border-box;
+ 	height: 50px;
+ 	line-height: 30px;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
+	font-size: 20px;
+	color: white;
+	padding: 10px;
+ }
+
+ header .poweredby {
+ 	float: right;
+ 	width: 200px;
+ 	font-size: 14px;
+ 	vertical-align: top;
+ 	line-height: 16px;
+ }
+
+ header .poweredby img {
+ 	margin-left: 10px;
+ }
+
+ #bodyWrapper {
+ 	padding: 10px;
+ }
+
+ h2 {
+ 	display: block;
+ 	border-bottom: solid 2px #999;
+ }
