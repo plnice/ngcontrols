@@ -68,6 +68,27 @@
 	padding: 5px;
 }
 
+
+/* <accordion> */
+
+.ng-accordion {
+	display: block;
+	border: solid 1px #05c;
+	border-radius: 5px;
+	background: #08c;
+	overflow: hidden;
+}
+
+.ng-accordion .ng-folding-item .ng-title {
+	border: none;
+	border-radius: 0px;
+}
+
+.ng-accordion .ng-folding-item .ng-content {
+	border: none;
+	border-radius: 0px;
+}
+
 /* <folding-item> */
 
 .ng-folding-item {

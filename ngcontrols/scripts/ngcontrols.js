@@ -72,28 +72,6 @@ NG$C.Controls.directive("pane", function() {
 });
 
 
-// <folding-item>
-NG$C.Controls.directive("foldingItem", function() {
-    return {
-        restrict: "E",
-        transclude: true,
-        replace: true,
-        scope: {title: "@", open: "@"},
-        controller: function($scope, $element, $attrs) {
-            $scope.selected = ($attrs.open === "true");
-            $scope.select = function() {
-                $scope.selected = !$scope.selected;
-            }
-        },
-        template:
-            '<div class="ng-folding-item">'+
-            '    <a href="" class="ng-title" ng-class="{active:selected}" ng-click="select()">{{title}}</a>'+
-            '    <div class="ng-content" ng-class="{active:selected}"><div class="ng-inner" ng-transclude></div></div>'+
-            '</div>'
-    };
-});
-
-
 // <accordion>
 
 NG$C.Controls.directive("accordion", function() {
@@ -103,9 +81,66 @@ NG$C.Controls.directive("accordion", function() {
         replace: true,
         scope: {},
         controller: function($scope, $element, $attrs) {
+            var foldingItems = $scope.foldingItems = [];
 
+            this.select = function(foldingItem) {
+                var current = foldingItem;
+                angular.forEach(foldingItems, function(foldingItem) {
+                    if (foldingItem != current) {
+                        foldingItem.set(false);
+                    }
+                });
+                current.turn();
+            };
+
+            this.addFoldingItem = function(foldingItem) {
+                foldingItems.push(foldingItem);
+            };
         },
         template:
             '<div class="ng-accordion" ng-transclude></div>'
     }
+});
+
+// <folding-item>
+NG$C.Controls.directive("foldingItem", function() {
+    return {
+        require: "^?accordion",
+        restrict: "E",
+        transclude: true,
+        replace: true,
+        scope: {title: "@", open: "@"},
+        link: function($scope, $element, $attrs, accordion) {
+            if (accordion) {
+                $scope.accordion = accordion;
+                $scope.accordion.addFoldingItem($scope);
+            }
+        },
+        controller: function($scope, $element, $attrs) {
+            var that = this;
+
+            $scope.selected = ($attrs.open === "true");
+            
+            $scope.select = function() {
+                if ($scope.accordion !== undefined) {
+                    $scope.accordion.select($scope);
+                } else {
+                    $scope.turn();
+                }
+            }
+            
+            $scope.set = function(status) {
+                $scope.selected = status;
+            }
+
+            $scope.turn = function() {
+                $scope.set(!$scope.selected);
+            }
+        },
+        template:
+            '<div class="ng-folding-item">'+
+            '    <a href="" class="ng-title" ng-class="{active:selected}" ng-click="select()">{{title}}</a>'+
+            '    <div class="ng-content" ng-class="{active:selected}"><div class="ng-inner" ng-transclude></div></div>'+
+            '</div>'
+    };
 });

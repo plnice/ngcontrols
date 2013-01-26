@@ -30,6 +30,11 @@
 
         <h2>Accordion</h2>
         <accordion>
+            <folding-item title="Folding item test" open="true">
+                Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+                Currency: {{ 123456 | currency }} <br>
+                Number: {{ 98765.4321 | number }} <br>
+            </folding-item>
             <folding-item title="Folding item test">
                 Date: {{ '2012-04-01' | date:'fullDate' }} <br>
                 Currency: {{ 123456 | currency }} <br>
