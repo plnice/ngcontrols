@@ -45,17 +45,27 @@
 
 .ng-tabs .ng-content {
 	border: solid 1px #05c;
-	padding: 5px;
 	background: white;
-	min-height: 50px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
 .ng-tabs .ng-pane {
-	display: none;
+	-webkit-transition: max-height 0.8s;
+	height: 60px;
+	max-height: 0px;
+	overflow: hidden;
+	box-sizing: border-box;
 }
 
 .ng-tabs .ng-pane.active {
-	display: block;
+	-webkit-transition: max-height 0.8s 0.8s;
+	max-height: 60px;
+}
+
+.ng-tabs .ng-pane .ng-inner {
+	padding: 5px;
 }
 
 /* <folding-item> */
@@ -67,36 +77,39 @@
 
 .ng-folding-item .ng-title {
 	width: 100%;
-	color: #666;
-	display: inline-block;
+	display: block;
 	box-sizing: border-box;
 	padding: 5px;
 	margin-right: 4px;
-	border: solid 1px #ccc;
-	border-bottom: none;
+	border: solid 1px #05c;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	background-image: -webkit-gradient(linear, center bottom, center top, from(#ddd), to(#eee));
+	text-decoration: none;
+	color: white;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
 }
 
 .ng-folding-item .ng-title.active {
-	color: white;
-	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
-	border-color: #05c;
 }
 
 .ng-folding-item .ng-content {
-	display: none;
+	display: block;
+	overflow: hidden;
 	border: solid 1px #05c;
-	padding: 5px;
+	border-top: none;
+	box-sizing: border-box;
 	background: white;
-	min-height: 50px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-webkit-transition: max-height 0.8s;
+	max-height: 0px;
 }
 
 .ng-folding-item .ng-content.active {
-	display: block;
+	max-height: 60px;
 }
 
 .ng-folding-item .ng-content .ng-inner {
 	display: block;
+	padding: 5px;
 }

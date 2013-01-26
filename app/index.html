@@ -22,15 +22,25 @@
     <div id="bodyWrapper">
 
         <h2>Folding Item</h2>
-        <folding-item title="Folding item test">
-            <content>
-                Date: {{ '2012-04-01' | date:'fullDate' }} <br>
-                Currency: {{ 123456 | currency }} <br>
-                Number: {{ 98765.4321 | number }} <br>
-            </content>
+        <folding-item title="Folding item test" open="true">
+            Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+            Currency: {{ 123456 | currency }} <br>
+            Number: {{ 98765.4321 | number }} <br>
         </folding-item>
 
         <h2>Accordion</h2>
+        <accordion>
+            <folding-item title="Folding item test">
+                Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+                Currency: {{ 123456 | currency }} <br>
+                Number: {{ 98765.4321 | number }} <br>
+            </folding-item>
+            <folding-item title="Folding item test">
+                Date: {{ '2012-04-01' | date:'fullDate' }} <br>
+                Currency: {{ 123456 | currency }} <br>
+                Number: {{ 98765.4321 | number }} <br>
+            </folding-item>
+        </accordion>
 
         <h2>Tabs</h2>
 
@@ -40,8 +50,8 @@
                 Currency: {{ 123456 | currency }} <br>
                 Number: {{ 98765.4321 | number }} <br>
             </pane>
-            <pane title="Second">
-                Nothing here.
+            <pane title="Second" open="true">
+                Initially opened pane.
             </pane>
         </tabs>
 

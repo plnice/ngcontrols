@@ -28,6 +28,8 @@ NG$C.Controls.directive("tabs", function() {
                 pane.selected = true;
             };
 
+            this.select = $scope.select;
+
             this.addPane = function(pane) {
                 if (panes.length == 0) $scope.select(pane);
                 panes.push(pane);
@@ -54,11 +56,17 @@ NG$C.Controls.directive("pane", function() {
         transclude: true,
         replace: true,
         scope: {title: "@"},
-        link: function(scope, element, attrs, tabsCtrl) {
-            tabsCtrl.addPane(scope);
+        link: function($scope, $element, $attrs, tabs) {
+            var pane = $scope;
+            tabs.addPane(pane);
+            if ($attrs.open === "true") {
+                tabs.select(pane);
+            }
         },
         template:
-            '<div class="ng-pane" ng-class="{active: selected}" ng-transclude>'+
+            '<div class="ng-pane" ng-class="{active: selected}">'+
+            '    <div class="ng-inner" ng-transclude>'+
+            '    </div>'+
             '</div>'
     };
 });
@@ -70,28 +78,34 @@ NG$C.Controls.directive("foldingItem", function() {
         restrict: "E",
         transclude: true,
         replace: true,
-        scope: {title: "@"},
-        controller: function($scope, $element) {
-            $scope.selected = false;
+        scope: {title: "@", open: "@"},
+        controller: function($scope, $element, $attrs) {
+            $scope.selected = ($attrs.open === "true");
             $scope.select = function() {
                 $scope.selected = !$scope.selected;
             }
         },
         template:
             '<div class="ng-folding-item">'+
-            '    <div class="ng-title" ng-class="{active:selected}" ng-click="select()">{{title}}</div>'+
-            '    <div class="ng-content" ng-class="{active:selected}" ng-transclude></div>'+
+            '    <a href="" class="ng-title" ng-class="{active:selected}" ng-click="select()">{{title}}</a>'+
+            '    <div class="ng-content" ng-class="{active:selected}"><div class="ng-inner" ng-transclude></div></div>'+
             '</div>'
     };
 });
 
-NG$C.Controls.directive("content", function() {
+
+// <accordion>
+
+NG$C.Controls.directive("accordion", function() {
     return {
-        require: "^foldingItem",
         restrict: "E",
         transclude: true,
         replace: true,
+        scope: {},
+        controller: function($scope, $element, $attrs) {
+
+        },
         template:
-            '<div class="ng-inner" ng-transclude></div>'
-    };
+            '<div class="ng-accordion" ng-transclude></div>'
+    }
 });
