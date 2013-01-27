@@ -17,28 +17,32 @@
  header {
  	display: block;
  	box-sizing: border-box;
- 	height: 50px;
- 	line-height: 30px;
-	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
-	font-size: 20px;
+ 	height: 35px;
+ 	line-height: 25px;
+	background-image: -webkit-gradient(linear, center bottom, center top, color-stop(0.5,#333), color-stop(0.51,#444));
+	padding: 5px;
 	color: white;
-	padding: 10px;
+ }
+
+ header .nglogo {
+ 	float: left;
+ 	width: 110px;
  }
 
  header .poweredby {
  	float: right;
- 	width: 200px;
- 	font-size: 14px;
- 	vertical-align: top;
- 	line-height: 16px;
+ 	width: 110px;
  }
 
  header .poweredby img {
  	margin-left: 10px;
  }
 
- #bodyWrapper {
+ #bodyContent {
  	padding: 10px;
+ 	width: 920px;
+ 	margin-left: auto;
+ 	margin-right: auto;
  }
 
  h2 {

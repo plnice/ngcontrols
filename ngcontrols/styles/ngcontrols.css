@@ -77,6 +77,8 @@
 	border-radius: 5px;
 	background: #08c;
 	overflow: hidden;
+    font-family: "Lucida Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 .ng-accordion .ng-folding-item .ng-title {
@@ -94,6 +96,8 @@
 .ng-folding-item {
 	display: block;
 	width: 100%;
+    font-family: "Lucida Sans", Arial, Helvetica, sans-serif;
+    font-size: 14px;
 }
 
 .ng-folding-item .ng-title {
