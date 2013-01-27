@@ -9,9 +9,19 @@ ngControls is an open-source project providing a complete library of lightweight
 Current list of the controls
 --------------------
 
-- Folding Item.
-- Accordion.
-- Tabs - modified Tabs example from AngularJS homepage.
+- Folding Item
+- Accordion
+- Tabs (modified Tabs example from AngularJS homepage)
+
+Kitchen Sink
+------------
+
+Kitchen Sink is available at http://ngcontrols.eu01.aws.af.cm/app/index.html
+
+API Reference
+-------------
+
+In preparation.
 
 Directory structure
 -------------------
