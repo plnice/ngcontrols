@@ -144,3 +144,48 @@ NG$C.Controls.directive("foldingItem", function() {
             '</div>'
     };
 });
+
+
+// <list>
+
+// <tabs>
+NG$C.Controls.directive("list", function() {
+    return {
+        restrict: "E",
+        transclude: true,
+        replace: true,
+        scope: {clickable: "@"},
+        controller: function($scope, $element, $attrs) {
+            this.clickable = $attrs.clickable;
+        },
+        template:
+            '<ul class="ng-list" ng-transclude>'+
+            '</ul>'
+    };
+});
+
+// <tabs><pane>
+NG$C.Controls.directive("item", function() {
+    return {
+        require: "^list",
+        restrict: "E",
+        transclude: true,
+        replace: true,
+        scope: {clickable: "@", href: "@"},
+        link: function($scope, $element, $attrs, list) {
+            if ($attrs.clickable === undefined && 
+                (list.clickable === "true" || 
+                list.clickable === "false")) {
+                $attrs.clickable = list.clickable;
+            }
+        },
+        template:
+            '<ng-switch on="clickable">'+
+            '   <li ng-switch-when="true" class="ng-item clickable">'+
+            '       <a class="ng-a" ng-transclude href="{{href}}"></a>'+
+            '   </li>'+
+            '   <li ng-switch-default class="ng-item unclickable" ng-transclude>'+
+            '   </li>'+
+            '</ng-switch>'
+    };
+});

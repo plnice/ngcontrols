@@ -138,3 +138,40 @@
 	display: block;
 	padding: 5px;
 }
+
+
+/* <list> */
+
+.ng-list {
+	display: block;
+	width: 100%;
+	border: solid 1px #05c;
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+.ng-list .ng-item {
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	text-decoration: none;
+	color: white;
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#05c), to(#08c));
+}
+
+.ng-list .ng-item.unclickable {
+	padding: 5px;
+}
+
+.ng-list .ng-item.clickable:hover {
+	background-image: -webkit-gradient(linear, center bottom, center top, from(#03c), to(#06c));	
+}
+
+.ng-list .ng-item .ng-a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 5px;
+	background: url('../imgs/arrow.png') right center no-repeat;
+}
